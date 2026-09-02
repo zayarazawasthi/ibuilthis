@@ -1,8 +1,11 @@
+import HeroSection from "./components/landing-page/hero";
 
 
 export default function Home() {
   return (
-    <h1 className="font-bold">Hello world</h1>
+    <>
+    <HeroSection />
+    </>
   );
 }
 
