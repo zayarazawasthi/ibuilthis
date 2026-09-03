@@ -1,4 +1,5 @@
 import Link from "next/link";
+import StatsCard from "./stats-card";
 
 export default function HeroSection() {
   return (
@@ -6,7 +7,7 @@ export default function HeroSection() {
       <span className="border border-b-gray-800 rounded-full text-xs   tracking-tight text-black px-4 py-1 font-normal">
         Join thousands of creator sharing their work
       </span>
-      <h1 className="text-6xl py-8 font-bold tracking-tight  items-center ">
+      <h1 className="text-6xl  py-8 font-bold tracking-tight  items-center ">
         Share what You&apos;ve{" "}
         <span className="text-balance bg-linear-to-r from-amber-300 to-cyan-900 bg-clip-text text-transparent">
           built,
@@ -27,6 +28,7 @@ export default function HeroSection() {
         </button>
         <button className="border-black px-4 py-2 bg-black text-white rounded-md cursor-pointer"><Link href="/">Explore Project</Link></button>
       </div>
+  <StatsCard />
     </section>
   );
 }
