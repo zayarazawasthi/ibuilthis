@@ -6,11 +6,11 @@ import RecentlyLaunchedProducts from "./components/landing-page/recently-launche
 
 export default function Home() {
   return (
-    <>
+    <div className="bg-amber-50">
     <HeroSection />
     <FeaturedProducts />
     <RecentlyLaunchedProducts />
-    </>
+    </div>
   );
 }
 
