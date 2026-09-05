@@ -26,9 +26,11 @@ export default function HeroSection() {
         <button className="border border-black px-4 py-2 rounded-md bg-black text-white cursor-pointer">
           <Link href="/submit">Share Your Projects</Link>
         </button>
-        <button className="border-black px-4 py-2 bg-black text-white rounded-md cursor-pointer"><Link href="/">Explore Project</Link></button>
+        <button className="border-black px-4 py-2 bg-black text-white rounded-md cursor-pointer">
+          <Link href="/">Explore Project</Link>
+        </button>
       </div>
-  <StatsCard />
+      <StatsCard />
     </section>
   );
 }
