@@ -1,3 +1,11 @@
+import {
+  Show,
+  SignIn,
+  SignInButton,
+  SignUp,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
 import { CompassIcon, HomeIcon, SparkleIcon, UserIcon } from "lucide-react";
 import Link from "next/link";
 
@@ -15,7 +23,7 @@ const Logo = () => {
 };
 
 export default function Header() {
-  const isSignedIn = true;
+  const isSignedIn = false;
   return (
     <header className="sticky top-0 z-50 border-b bg-pink-200 backdrop-blur supports-backdrop-filter:bg-pink-300/60:">
       <div className="flex h-16 items-center justify-between">
@@ -35,29 +43,23 @@ export default function Header() {
           </Link>
         </nav>
         <div className="flex items-center gap-3 p-4 ">
-          {isSignedIn ? (
-            <>
-              <button className="bg-pink-500 px-4 py-1  rounded-md ">
-                <Link className="flex items-center gap-2" href="/submit">
-                  <SparkleIcon /> <span>Submit Project</span>
-                </Link>
-              </button>
-              {/*Clerk user */}
-              <button>
-                <UserIcon size={12} />
-              </button>
-            </>
-          ) : (
-            <>
-              {" "}
-              <button className="bg-pink-500 px-4 py-1 rounded-md cursor-pointer">
-                Sign In
-              </button>
-              <button className="bg-pink-500 px-4 py-1 rounded-md cursor-pointer">
+          <Show when="signed-out">
+            <SignInButton  className="bg-pink-500 text-white rounded-md px-4 font-normal text-sm py-1.5 cursor-pointer  hover:bg-pink-800"/>
+            <SignUpButton>
+              <button className="bg-pink-500 text-white rounded-md px-4 font-normal text-sm py-1.5 cursor-pointer hover:bg-pink-800">
                 Sign Up
               </button>
-            </>
-          )}
+            </SignUpButton>
+          </Show>
+          <Show when="signed-in">
+            <button className="bg-pink-500 px-4 py-1  rounded-md ">
+              <Link className="flex items-center gap-2" href="/submit">
+                <SparkleIcon /> <span>Submit Project</span>
+              </Link>
+            </button>
+            
+            <UserButton />
+          </Show>
         </div>
       </div>
     </header>
