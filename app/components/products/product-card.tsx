@@ -1,15 +1,10 @@
 import { StarIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { InferSelectModel } from "drizzle-orm";
+import { products } from "@/db/schema";
 
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  tags: string[];
-  votes: number;
-  isFeatured: boolean;
-}
+type Product = InferSelectModel<typeof products>;
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -18,7 +13,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="flex  max-w-4xl w-full mx-auto gap-3 items-center">
           <h1 className="text-xs font-semibold">{product.name}</h1>
           <div>
-            {product.isFeatured ? (
+            {product.voteCount > 200 && (
               <button className="flex  gap-2 bg-pink-700 text-white px-4 py-1 text-sm rounded-full items-center">
                 {
                   <>
@@ -26,8 +21,6 @@ export default function ProductCard({ product }: { product: Product }) {
                   </>
                 }
               </button>
-            ) : (
-              ""
             )}
           </div>
         </div>
@@ -35,10 +28,10 @@ export default function ProductCard({ product }: { product: Product }) {
           <p className="text-xs mt-3 max-w-md  ">{product.description}</p>
         </div>
         <div className="flex gap-2 mt-3">
-          {product.tags.map((tag) => (
+          {product?.tags?.map((tag: string) => (
             <span
               key={tag}
-              className="gap-2 bg-cyan-400 text-xs px-2 py-1 rounded-md text-white"
+              className="bg-cyan-400 text-xs px-2 py-1 rounded-md text-white"
             >
               {tag}
             </span>
@@ -48,4 +41,3 @@ export default function ProductCard({ product }: { product: Product }) {
     </Link>
   );
 }
-

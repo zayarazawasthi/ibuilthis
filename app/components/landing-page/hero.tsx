@@ -3,7 +3,8 @@ import StatsCard from "./stats-card";
 
 export default function HeroSection() {
   return (
-    <section className="  font-mono max-w-4xl mx-auto w-full flex justify-center items-center flex-col py-20">
+    <section className="bg-green-200">
+      <div className="font-mono max-w-4xl mx-auto w-full flex justify-center items-center flex-col py-20">
       <span className="border border-b-gray-800 rounded-full text-xs   tracking-tight text-black px-4 py-1 font-normal">
         Join thousands of creator sharing their work
       </span>
@@ -31,6 +32,7 @@ export default function HeroSection() {
         </button>
       </div>
       <StatsCard />
+    </div>
     </section>
   );
 }
