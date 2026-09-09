@@ -1,11 +1,12 @@
+
 import { RocketIcon } from "lucide-react";
 import SectionHeader from "../common/section-header";
 import ProductCard from "../products/product-card";
-import { Emblema_One } from "next/font/google";
 import EmptyState from "../common/empty-state";
 import { getRecentlyLaunchedProducts } from "@/lib/products/products-select";
 
 export default async function RecentlyLaunchedProducts() {
+ 
   const recentlyLaunchedProducts = await getRecentlyLaunchedProducts();
 
   return (

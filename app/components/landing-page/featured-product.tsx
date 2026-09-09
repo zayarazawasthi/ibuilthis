@@ -1,3 +1,5 @@
+// "use cache"
+
 import Link from "next/link";
 import SectionHeader from "../common/section-header";
 import { StarIcon } from "lucide-react";
