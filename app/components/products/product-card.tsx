@@ -1,6 +1,5 @@
 import { StarIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 import { InferSelectModel } from "drizzle-orm";
 import { products } from "@/db/schema";
 
