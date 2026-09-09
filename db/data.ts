@@ -24,7 +24,7 @@ export const allProducts = [
       "Streamline your team's workflow with intelligent task management, automated notifications, and real-time collaboration features.",
     websiteUrl: "https://taskflowpro.example.com",
     tags: ["Productivity", "SaaS"],
-    createdAt: new Date("2024-01-18"),
+    createdAt:  new Date(Date.now()),
     approvedAt: new Date("2024-01-19"),
     status: "approved" as const,
     submittedBy: "mike@example.com",
